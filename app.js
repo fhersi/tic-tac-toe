@@ -1,4 +1,5 @@
 const divBoard = document.querySelector(".board");
+const cells = document.querySelectorAll(".cell");
 
 const GameBoard = (() => {
 	const board = [
@@ -35,7 +36,6 @@ const elementCreate = (elementType, className, value) => {
 	newElement.classList.add(className);
 
 	if (value) {
-		console.log("true");
 		newElement.innerText = value;
 	}
 
@@ -43,3 +43,14 @@ const elementCreate = (elementType, className, value) => {
 };
 
 displayBoard();
+
+for (let cell of cells) {
+	cell.addEventListener("click", () => {
+		console.log(cell.innerText);
+		if (!cell.innerText) {
+			return;
+		}
+
+		cell.innerText = "X";
+	});
+}
