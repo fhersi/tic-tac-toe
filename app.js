@@ -42,6 +42,7 @@ const elementCreate = (elementType, className, value) => {
 };
 
 displayBoard();
+
 const cells = document.querySelectorAll(".cell");
 
 for (let cell of cells) {
@@ -51,6 +52,7 @@ for (let cell of cells) {
 		}
 
 		cell.innerText = "X";
+		computerMove();
 	});
 }
 
@@ -88,9 +90,28 @@ const won = () => {
 				cell.classList.add("winningCombo");
 			}
 
-			return winningCombination;
+			return true;
 		}
-		console.log(winningCombination);
+		//console.log(winningCombination);
 	}
-	return "play";
+	return false;
+};
+
+const random = (number) => Math.floor(Math.random() * number);
+
+const computerMove = () => {
+	let randomNum = random(cells.length);
+	console.log(randomNum);
+	if (won()) {
+		console.log("game over!");
+		return;
+	}
+	let currCell = cells[randomNum];
+	console.log(currCell);
+	if (currCell.innerText === "") {
+		currCell.innerText = "0";
+		won();
+		return;
+	}
+	computerMove(random(cells.length));
 };
