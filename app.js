@@ -1,11 +1,10 @@
 const divBoard = document.querySelector(".board");
-const cells = document.querySelectorAll(".cell");
 
 const GameBoard = (() => {
 	const board = [
-		["X", "0", "X"],
-		["X", "X", "0"],
-		["0", "0", "X"],
+		["", "", ""],
+		["", "", ""],
+		["", "", ""],
 	];
 	return { board };
 })();
@@ -43,11 +42,12 @@ const elementCreate = (elementType, className, value) => {
 };
 
 displayBoard();
+const cells = document.querySelectorAll(".cell");
 
 for (let cell of cells) {
+	console.log(cell);
 	cell.addEventListener("click", () => {
-		console.log(cell.innerText);
-		if (!cell.innerText) {
+		if (cell.innerText !== "") {
 			return;
 		}
 
