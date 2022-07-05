@@ -12,6 +12,7 @@ body {
 .main-container {
 	background-color: blanchedalmond;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
@@ -35,4 +36,12 @@ body {
 
 .winningCombo {
 	background-color: green;
+}
+
+.board-restart {
+	text-transform: capitalize;
+	background-color: black;
+	color: white;
+	border-radius: 10%;
+	margin: 5px;
 }

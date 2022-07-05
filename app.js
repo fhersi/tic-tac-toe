@@ -56,6 +56,15 @@ for (let cell of cells) {
 	});
 }
 
+const resetBoard = () => {
+	for (let cell of cells) {
+		cell.innerText = "";
+		cell.classList.remove("winningCombo");
+	}
+};
+const btnReset = document.querySelector(".board-restart");
+btnReset.addEventListener("click", resetBoard);
+
 const won = () => {
 	const top_row = [cells[0], cells[3], cells[6]];
 	const middle_row = [cells[1], cells[4], cells[7]];
@@ -113,5 +122,6 @@ const computerMove = () => {
 		won();
 		return;
 	}
+
 	computerMove(random(cells.length));
 };
