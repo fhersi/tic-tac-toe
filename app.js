@@ -1,5 +1,16 @@
 const divBoard = document.querySelector(".board");
 
+let selectedPlayer = "x";
+
+const playerController = document.querySelectorAll(".player");
+
+for (let playerOption of playerController) {
+	playerOption.addEventListener("click", () => {
+		selectedPlayer = playerOption.innerText;
+		console.log(playerOption.innerText);
+	});
+}
+
 const GameBoard = (() => {
 	const board = [
 		["", "", ""],
@@ -16,6 +27,14 @@ const PlayerFactory = (name) => {
 	const lose = () => "Sorry You've Lost";
 
 	return { playerName, win, lose };
+};
+const gameFlow = () => {
+
+    if(selectedPlayer === "x") ? 
+
+    const player = PlayerFactory(selectedPlayer);
+	//console.log(player);
+	console.log(player.playerName);
 };
 
 const displayBoard = () => {
